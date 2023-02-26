@@ -1,4 +1,4 @@
-import { h1, p, div, button, input, span } from './great.js'
+import { h1, p, div, button, input, span } from './lib/great.js'
 
 export default function () {
   const Display = p()

@@ -4,6 +4,7 @@ export function render(anchor, element) {
 
 function createComponent(name, children, props = {}) {
   const component = document.createElement(name)
+
   if (props.name) component.name = props.name
   if (props.type) component.type = props.type
   if (props.style) component.style = props.style
