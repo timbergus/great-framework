@@ -1,35 +1,36 @@
-export function render(anchor, element) {
-  anchor.appendChild(element)
-}
-
-function createComponent(name, children, props = {}) {
+export default function createComponent(name, children, props = {}) {
   const component = document.createElement(name)
 
-  if (props.name) component.name = props.name
-  if (props.type) component.type = props.type
-  if (props.style) component.style = props.style
-  if (props.className) component.className = props.className
-  if (props.onInput) component.addEventListener('input', props.onInput)
-  if (props.onClick) component.addEventListener('click', props.onClick)
+  Object.entries(props).forEach(([key, value]) => {
+    if (key?.includes('on')) {
+      component.addEventListener(
+        key.substring(2, key.length).toLowerCase(),
+        value
+      )
+    } else {
+      component[key] = value
+    }
+  })
+
   if (!children) return component
+
   if (Array.isArray(children)) {
     for (let child of children) {
-      typeof child === 'string'
-        ? component.appendChild(document.createTextNode(child))
-        : component.appendChild(child)
+      if (['number', 'string'].includes(typeof child)) {
+        component.appendChild(document.createTextNode(child))
+      } else {
+        component.appendChild(child)
+      }
     }
-  } else {
+  } else if (['number', 'string'].includes(typeof children)) {
     component.innerHTML = children
+  } else {
+    component.appendChild(children)
   }
+
   return component
 }
 
-/**
- * @param {Object?} props
- * @param {string?} props.className
- * @param {string|number|Node|Node[]?} props.children
- * @return {Node}
- */
 export function h1({ children, ...props } = {}) {
   return createComponent('h1', children, props)
 }

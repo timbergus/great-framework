@@ -1,4 +1,4 @@
-import { render } from './src/lib/great.js'
+import { render } from './src/lib/great-dom.js'
 
 import app from './src/app.js'
 
