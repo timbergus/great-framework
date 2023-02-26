@@ -1,0 +1,33 @@
+{
+  "name": "great-framework",
+  "version": "1.0.0",
+  "description": "Good old web.",
+  "main": "src/lib/great.js",
+  "scripts": {
+    "lint": "eslint src",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timbergus/great-framework.git"
+  },
+  "keywords": [
+    "javascript",
+    "framework",
+    "vanilla"
+  ],
+  "author": {
+    "name": "Gustavo Muñoz",
+    "email": "timbergus@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/timbergus/great-framework/issues"
+  },
+  "homepage": "https://github.com/timbergus/great-framework#readme",
+  "devDependencies": {
+    "eslint": "^8.35.0",
+    "jest": "^29.4.3",
+    "jest-environment-jsdom": "^29.4.3"
+  }
+}
