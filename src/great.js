@@ -2,45 +2,53 @@ export function render(anchor, element) {
   anchor.appendChild(element)
 }
 
-export function h1({ children, className }) {
-  const component = document.createElement('h1')
-  if (className) component.className = className
-  if (children) component.innerHTML = children
-  return component
-}
-
-export function p({ children, className }) {
-  const component = document.createElement('p')
-  if (className) component.className = className
-  if (children) component.innerHTML = children
-  return component
-}
-
-export function input({ children, className, type, onInput }) {
-  const component = document.createElement('input')
-  if (type) component.type = type
-  if (className) component.className = className
-  if (children) component.innerHTML = children
-  component.addEventListener('input', onInput)
-  return component
-}
-
-export function button({ name, children, className, onClick }) {
-  const component = document.createElement('button')
-  if (name) component.name = name
-  if (className) component.className = className
-  if (children) component.innerHTML = children
-  component.addEventListener('click', onClick)
-  return component
-}
-
-export function div({ children, className }) {
-  const component = document.createElement('div')
-  if (className) component.className = className
-  if (children) {
-    for (let i = 0; i < children.length; i++) {
-      component.appendChild(children[i])
+function createComponent(name, children, props = {}) {
+  const component = document.createElement(name)
+  if (props.name) component.name = props.name
+  if (props.type) component.type = props.type
+  if (props.style) component.style = props.style
+  if (props.className) component.className = props.className
+  if (props.onInput) component.addEventListener('input', props.onInput)
+  if (props.onClick) component.addEventListener('click', props.onClick)
+  if (!children) return component
+  if (Array.isArray(children)) {
+    for (let child of children) {
+      typeof child === 'string'
+        ? component.appendChild(document.createTextNode(child))
+        : component.appendChild(child)
     }
+  } else {
+    component.innerHTML = children
   }
   return component
+}
+
+/**
+ * @param {Object?} props
+ * @param {string?} props.className
+ * @param {string|number|Node|Node[]?} props.children
+ * @return {Node}
+ */
+export function h1({ children, ...props } = {}) {
+  return createComponent('h1', children, props)
+}
+
+export function p({ children, ...props } = {}) {
+  return createComponent('p', children, props)
+}
+
+export function span({ children, ...props } = {}) {
+  return createComponent('span', children, props)
+}
+
+export function input({ children, ...props } = {}) {
+  return createComponent('input', children, props)
+}
+
+export function button({ children, ...props } = {}) {
+  return createComponent('button', children, props)
+}
+
+export function div({ children, ...props } = {}) {
+  return createComponent('div', children, props)
 }

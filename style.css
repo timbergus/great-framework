@@ -1,0 +1,27 @@
+.text-red {
+  color: red;
+}
+
+.text-green {
+  color: green;
+}
+
+.text-blue {
+  color: blue;
+}
+
+.flex {
+  display: flex;
+}
+
+.gap-8 {
+  gap: 8px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.font-normal {
+  font-weight: normal;
+}
