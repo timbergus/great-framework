@@ -28,22 +28,14 @@ export default function createComponent(name, children, state, props = {}) {
   if (state) {
     if (Array.isArray(state)) {
       for (let s of state) {
-        component.addEventListener(
-          s,
-          function ({ detail }) {
-            this[detail?.property] = detail?.value
-          },
-          true
-        )
+        component.addEventListener(s, function ({ detail }) {
+          this[detail?.property] = detail?.value
+        })
       }
     } else {
-      component.addEventListener(
-        state,
-        function ({ detail }) {
-          this[detail?.property] = detail?.value
-        },
-        true
-      )
+      component.addEventListener(state, function ({ detail }) {
+        this[detail?.property] = detail?.value
+      })
     }
   }
 
