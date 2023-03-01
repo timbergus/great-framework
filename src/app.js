@@ -1,13 +1,22 @@
 import { h1, p, div, button, input, span } from './lib/great.js'
 
 export default function () {
-  const Display = p()
+  const Display = p({ state: ['changeColor', 'changeText'] })
 
-  const handleSetOutput = (event) => {
-    Display.innerHTML = event.target.value
+  function handleSetOutput() {
+    Display.dispatchEvent(
+      new CustomEvent('changeText', {
+        detail: { property: 'innerHTML', value: this.value },
+      })
+    )
   }
-  const handleChangeColor = (event) => {
-    Display.style.color = event.target.name
+
+  function handleChangeColor() {
+    Display.dispatchEvent(
+      new CustomEvent('changeColor', {
+        detail: { property: 'className', value: `text-${this.name}` },
+      })
+    )
   }
 
   return div({
@@ -22,6 +31,7 @@ export default function () {
       input({
         type: 'text',
         onInput: handleSetOutput,
+        autofocus: true,
       }),
       Display,
       div({

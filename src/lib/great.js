@@ -1,56 +1,75 @@
-export default function createComponent(name, children, props = {}) {
+export default function createComponent(name, children, state, props = {}) {
   const component = document.createElement(name)
 
   Object.entries(props).forEach(([key, value]) => {
     if (key?.includes('on')) {
-      component.addEventListener(
-        key.substring(2, key.length).toLowerCase(),
-        value
-      )
+      component[key.toLowerCase()] = value
     } else {
       component[key] = value
     }
   })
 
-  if (!children) return component
-
-  if (Array.isArray(children)) {
-    for (let child of children) {
-      if (['number', 'string'].includes(typeof child)) {
-        component.appendChild(document.createTextNode(child))
-      } else {
-        component.appendChild(child)
+  if (children) {
+    if (Array.isArray(children)) {
+      for (let child of children) {
+        if (['number', 'string'].includes(typeof child)) {
+          component.appendChild(document.createTextNode(child))
+        } else {
+          component.appendChild(child)
+        }
       }
+    } else if (['number', 'string'].includes(typeof children)) {
+      component.innerHTML = children
+    } else {
+      component.appendChild(children)
     }
-  } else if (['number', 'string'].includes(typeof children)) {
-    component.innerHTML = children
-  } else {
-    component.appendChild(children)
+  }
+
+  if (state) {
+    if (Array.isArray(state)) {
+      for (let s of state) {
+        component.addEventListener(
+          s,
+          function ({ detail }) {
+            this[detail?.property] = detail?.value
+          },
+          true
+        )
+      }
+    } else {
+      component.addEventListener(
+        state,
+        function ({ detail }) {
+          this[detail?.property] = detail?.value
+        },
+        true
+      )
+    }
   }
 
   return component
 }
 
-export function h1({ children, ...props } = {}) {
-  return createComponent('h1', children, props)
+export function h1({ children, state, ...props } = {}) {
+  return createComponent('h1', children, state, props)
 }
 
-export function p({ children, ...props } = {}) {
-  return createComponent('p', children, props)
+export function p({ children, state, ...props } = {}) {
+  return createComponent('p', children, state, props)
 }
 
-export function span({ children, ...props } = {}) {
-  return createComponent('span', children, props)
+export function span({ children, state, ...props } = {}) {
+  return createComponent('span', children, state, props)
 }
 
-export function input({ children, ...props } = {}) {
-  return createComponent('input', children, props)
+export function input({ children, state, ...props } = {}) {
+  return createComponent('input', children, state, props)
 }
 
-export function button({ children, ...props } = {}) {
-  return createComponent('button', children, props)
+export function button({ children, state, ...props } = {}) {
+  return createComponent('button', children, state, props)
 }
 
-export function div({ children, ...props } = {}) {
-  return createComponent('div', children, props)
+export function div({ children, state, ...props } = {}) {
+  return createComponent('div', children, state, props)
 }
