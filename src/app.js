@@ -1,22 +1,15 @@
-import { h1, p, div, button, input, span } from './lib/great.js'
+import { h1, p, div, button, input, span, addSignal } from './lib/great.js'
 
 export default function () {
-  const Display = p({ state: ['changeColor', 'changeText'] })
+  const [color, setColor] = addSignal()
+  const [text, setText] = addSignal()
 
   function handleSetOutput() {
-    Display.dispatchEvent(
-      new CustomEvent('changeText', {
-        detail: { property: 'innerHTML', value: this.value },
-      })
-    )
+    setText(this.value)
   }
 
   function handleChangeColor() {
-    Display.dispatchEvent(
-      new CustomEvent('changeColor', {
-        detail: { property: 'className', value: `text-${this.name}` },
-      })
-    )
+    setColor(`text-${this.name}`)
   }
 
   return div({
@@ -33,7 +26,10 @@ export default function () {
         onInput: handleSetOutput,
         autofocus: true,
       }),
-      Display,
+      p({
+        className: color,
+        children: text,
+      }),
       div({
         className: 'flex gap-8',
         children: [
@@ -56,6 +52,10 @@ export default function () {
             onClick: handleChangeColor,
           }),
         ],
+      }),
+      p({
+        className: color,
+        children: 'This is my cool paragraph',
       }),
     ],
   })
