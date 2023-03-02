@@ -7,8 +7,6 @@ export function addSignal() {
     } else {
       events[event].push(element)
     }
-
-    console.log(JSON.stringify(events))
   }
 
   function emit(value) {

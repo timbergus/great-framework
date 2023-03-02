@@ -1,15 +1,35 @@
 import { h1, p, div, button, input, span, addSignal } from './lib/great.js'
+import jedi from './jedi.js'
+
+const [color, setColor] = addSignal()
+const [text, setText] = addSignal()
+const [jediName, setJediName] = addSignal()
 
 export default function () {
-  const [color, setColor] = addSignal()
-  const [text, setText] = addSignal()
-
   function handleSetOutput() {
     setText(this.value)
   }
 
   function handleChangeColor() {
     setColor(`text-${this.name}`)
+  }
+
+  function handleReveal() {
+    let count = 5
+
+    fetch('https://swapi.dev/api/people/1')
+      .then((response) => response.json())
+      .then((data) => {
+        const interval = setInterval(function () {
+          if (count > 0) {
+            setJediName(count)
+            count--
+          } else {
+            setJediName(data.name)
+            clearInterval(interval)
+          }
+        }, 1000)
+      })
   }
 
   return div({
@@ -56,6 +76,21 @@ export default function () {
       p({
         className: color,
         children: 'This is my cool paragraph',
+      }),
+      div({
+        children: [
+          button({
+            onClick: handleReveal,
+            children: 'Who is the Jedi?',
+          }),
+          p({
+            children: jediName,
+          }),
+        ],
+      }),
+      jedi({
+        className: color,
+        name: jediName,
       }),
     ],
   })
