@@ -1,5 +1,4 @@
 name: testing
-run-name: Testing GreatJS
 on: push
 jobs:
   testing:
