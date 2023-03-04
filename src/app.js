@@ -44,20 +44,12 @@ export const App = () => {
         }),
       }),
       Layout({
-        children: [
+        children: ['red', 'green', 'blue'].map((name) =>
           Button({
-            name: 'red',
+            name: name,
             onClick: handleChangeColor,
-          }),
-          Button({
-            name: 'green',
-            onClick: handleChangeColor,
-          }),
-          Button({
-            name: 'blue',
-            onClick: handleChangeColor,
-          }),
-        ],
+          })
+        ),
       }),
 
       Jedi({ color }),

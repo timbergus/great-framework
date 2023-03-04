@@ -32,41 +32,21 @@ export const Jedi = ({ color }) => {
               alt: 'Luke Skywalker',
             }),
           }),
-          InfoLine({
+          Object.entries({
             name: 'Name',
-            color: color(),
-            value: jedi('name'),
-          }),
-          InfoLine({
-            name: 'Birth year',
-            color: color(),
-            value: jedi('birth_year'),
-          }),
-          InfoLine({
-            name: 'Eye color',
-            color: color(),
-            value: jedi('eye_color'),
-          }),
-          InfoLine({
-            name: 'Skin color',
-            color: color(),
-            value: jedi('skin_color'),
-          }),
-          InfoLine({
-            name: 'Hair color',
-            color: color(),
-            value: jedi('hair_color'),
-          }),
-          InfoLine({
-            name: 'Height',
-            color: color(),
-            value: jedi('height'),
-          }),
-          InfoLine({
-            name: 'Mass',
-            color: color(),
-            value: jedi('mass'),
-          }),
+            birth_year: 'Birth year',
+            eye_color: 'Eye color',
+            skin_color: 'Skin color',
+            hair_color: 'Hair color',
+            height: 'Height',
+            mass: 'Mass',
+          }).map(([value, name]) =>
+            InfoLine({
+              name,
+              color: color(),
+              value: jedi(value),
+            })
+          ),
         ],
       }),
     }),
