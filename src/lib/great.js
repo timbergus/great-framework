@@ -1,6 +1,6 @@
-import { addSignal, appendElement, isEvent, setProperty } from './utils.js'
+import { createSignal, appendElement, isEvent, setProperty } from './utils.js'
 
-function createComponent(name, children, props = {}) {
+function createComponent(name, props = {}, children = undefined || null) {
   const component = document.createElement(name)
 
   Object.entries(props).forEach(([key, value]) => {
@@ -23,28 +23,32 @@ function createComponent(name, children, props = {}) {
 }
 
 function h1({ children, ...props } = {}) {
-  return createComponent('h1', children, props)
+  return createComponent('h1', props, children)
 }
 
 function p({ children, ...props } = {}) {
-  return createComponent('p', children, props)
+  return createComponent('p', props, children)
 }
 
 function span({ children, ...props } = {}) {
-  return createComponent('span', children, props)
+  return createComponent('span', props, children)
 }
 
 function input({ children, ...props } = {}) {
-  return createComponent('input', children, props)
+  return createComponent('input', props, children)
 }
 
 function button({ children, ...props } = {}) {
-  return createComponent('button', children, props)
+  return createComponent('button', props, children)
 }
 
 function div({ children, ...props } = {}) {
-  return createComponent('div', children, props)
+  return createComponent('div', props, children)
+}
+
+function img(props = {}) {
+  return createComponent('img', props)
 }
 
 export default createComponent
-export { addSignal, h1, p, span, input, button, div }
+export { createSignal, h1, p, div, span, input, button, img }

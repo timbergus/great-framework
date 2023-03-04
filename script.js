@@ -1,7 +1,7 @@
 import { render } from './src/lib/great-dom.js'
 
-import app from './src/app.js'
+import { App } from './src/App.js'
 
 const root = document.getElementById('root')
 
-render(root, app())
+render(root, App())
