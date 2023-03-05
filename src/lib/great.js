@@ -34,6 +34,10 @@ function span({ children, ...props } = {}) {
   return createComponent('span', props, children)
 }
 
+function a({ children, ...props } = {}) {
+  return createComponent('a', props, children)
+}
+
 function input({ children, ...props } = {}) {
   return createComponent('input', props, children)
 }
@@ -51,4 +55,4 @@ function img(props = {}) {
 }
 
 export default createComponent
-export { createSignal, h1, p, div, span, input, button, img }
+export { createSignal, h1, p, div, span, a, input, button, img }

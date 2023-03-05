@@ -1,3 +1,4 @@
+import Router, { Link } from './lib/great-router.js'
 import { h1, p, div, input, span, createSignal } from './lib/great.js'
 import { Jedi } from './jedi.js'
 import { Button } from './Button.js'
@@ -19,18 +20,39 @@ export const App = () => {
     className: 'flex flex-col gap-2 p-4',
     children: [
       h1({
-        className: 'text-3xl font-semibold text-zinc-700',
+        className: 'text-3xl font-semibold text-zinc-700 dark:text-zinc-200',
         children: [
           'We',
           span({ children: 'lc', className: 'text-red-500 font-normal' }),
           'ome 👋',
         ],
       }),
+      div({
+        className: 'grid gap-8 justify-center p-4',
+        children: [
+          div({
+            className: 'btn-group',
+            children: [
+              Link({ to: 'home', className: 'btn', children: 'Home' }),
+              Link({ to: 'docs', className: 'btn', children: 'Docs' }),
+              Link({ to: 'about', className: 'btn', children: 'About' }),
+              Link({ to: 'car', className: 'btn', children: 'Car' }),
+            ],
+          }),
+          Router({
+            home: p({ children: 'This is the A route' }),
+            docs: p({ children: 'This is the B route' }),
+            about: p({ children: 'This is the C route' }),
+          }),
+          Router({
+            car: p({ children: 'This is the CAR route' }),
+          }),
+        ],
+      }),
       Layout({
         children: input({
           type: 'text',
-          className:
-            'col-span-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6',
+          className: 'input w-full max-w-xs col-span-3',
           placeholder: 'Write something',
           onInput: handleSetOutput,
           autofocus: true,

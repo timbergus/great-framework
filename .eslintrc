@@ -11,6 +11,9 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
+  "globals": {
+    "classNames": true
+  },
   "rules": {
     "indent": [
       "error",
