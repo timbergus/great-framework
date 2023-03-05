@@ -1,7 +1,7 @@
 import { createSignal, div, img } from '../../../lib/great.js'
 import { Layout } from './Layout.js'
 import { Button } from './Button.js'
-import { InfoLine } from './infoLine.js'
+import { InfoLine } from './InfoLine.js'
 
 export const Jedi = ({ color }) => {
   const [jedi, setJedi] = createSignal()
