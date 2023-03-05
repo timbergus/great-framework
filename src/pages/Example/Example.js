@@ -1,13 +1,6 @@
-import {
-  createSignal,
-  div,
-  h1,
-  input,
-  Link,
-  p,
-  Router,
-  span,
-} from '../../../greatjs/index.js'
+import { div, h1, input, p, span } from '../../lib/great.js'
+import { createSignal } from '../../lib/utils.js'
+import { Link, Router } from '../../lib/great-router.js'
 
 import { Button } from './components/Button.js'
 import { Jedi } from './components/Jedi.js'

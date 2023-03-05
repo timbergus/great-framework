@@ -1,25 +1,5 @@
 import { button } from './great.js'
 
-export function Link({ to, className, children }) {
-  const component = button({
-    className,
-    children,
-    onClick: function () {
-      window.dispatchEvent(
-        new CustomEvent('navigate', { detail: { route: to } })
-      )
-    },
-  })
-
-  window.addEventListener('navigate', function (event) {
-    component.className = classNames(className, {
-      'btn-active': event.detail.route === to,
-    })
-  })
-
-  return component
-}
-
 export function Router({ className, routes, defaultRoute }) {
   const component = document.createElement('div')
   component.className = className
@@ -41,6 +21,26 @@ export function Router({ className, routes, defaultRoute }) {
       detail: { route: defaultRoute ?? Object.keys(routes)[0] },
     })
   )
+
+  return component
+}
+
+export function Link({ to, className, children }) {
+  const component = button({
+    className,
+    children,
+    onClick: function () {
+      window.dispatchEvent(
+        new CustomEvent('navigate', { detail: { route: to } })
+      )
+    },
+  })
+
+  window.addEventListener('navigate', function (event) {
+    component.className = classNames(className, {
+      'btn-active': event.detail.route === to,
+    })
+  })
 
   return component
 }

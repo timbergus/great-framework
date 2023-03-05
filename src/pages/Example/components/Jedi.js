@@ -1,4 +1,5 @@
-import { createSignal, div, img } from '../../../../greatjs/index.js'
+import { div, img } from '../../../lib/great.js'
+import { createSignal } from '../../../lib/utils.js'
 
 import { Layout } from './Layout.js'
 import { Button } from './Button.js'

@@ -1,5 +1,4 @@
-import { h2 } from '../../../greatjs/great.js'
-import { div, h1, img, p, span } from '../../../greatjs/index.js'
+import { div, h1, h2, img, p, span } from '../../lib/great.js'
 
 export const Docs = () =>
   div({

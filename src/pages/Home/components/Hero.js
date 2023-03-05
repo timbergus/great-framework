@@ -1,4 +1,5 @@
-import { Link, div, h1, p } from '../../../../greatjs/index.js'
+import { div, h1, p } from '../../../lib/great.js'
+import { Link } from '../../../lib/great-router.js'
 
 export const Hero = () => {
   return div({

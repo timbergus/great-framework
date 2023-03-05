@@ -1,4 +1,5 @@
-import { Router, Link, div } from '../greatjs/index.js'
+import { div } from './lib/great.js'
+import { Link, Router } from './lib/great-router.js'
 
 import { Docs } from './pages/Docs/Docs.js'
 import { Example } from './pages/Example/Example.js'
