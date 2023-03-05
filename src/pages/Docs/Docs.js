@@ -38,7 +38,7 @@ export const Docs = () =>
           div({
             className: 'rounded-md overflow-hidden',
             children: img({
-              src: 'greatjs/src/assets/index.png',
+              src: 'assets/index.png',
               alt: 'index',
             }),
           }),
@@ -46,7 +46,7 @@ export const Docs = () =>
           div({
             className: 'rounded-md overflow-hidden',
             children: img({
-              src: 'greatjs/src/assets/render.png',
+              src: 'assets/render.png',
               alt: 'render',
             }),
           }),
@@ -85,7 +85,7 @@ export const Docs = () =>
           div({
             className: 'rounded-md overflow-hidden',
             children: img({
-              src: 'greatjs/src/assets/paragraph.png',
+              src: 'assets/paragraph.png',
               alt: 'paragraph',
             }),
           }),
@@ -95,7 +95,7 @@ export const Docs = () =>
           div({
             className: 'rounded-md overflow-hidden',
             children: img({
-              src: 'greatjs/src/assets/properties.png',
+              src: 'assets/properties.png',
               alt: 'properties',
             }),
           }),
