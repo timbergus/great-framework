@@ -1,4 +1,4 @@
-import { button, p, span } from './lib/great.js'
+import { button, p, span } from '../../../lib/great.js'
 
 export const Button = ({ name, children, onClick }) => {
   return button({

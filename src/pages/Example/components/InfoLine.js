@@ -1,4 +1,4 @@
-import { p, span } from './lib/great.js'
+import { p, span } from '../../../lib/great.js'
 
 export const InfoLine = ({ name, value, color }) => {
   return p({

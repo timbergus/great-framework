@@ -20,8 +20,9 @@ export function Link({ to, className, children }) {
   return component
 }
 
-export default function Router(routes) {
+export default function Router({ className, routes }) {
   const component = document.createElement('div')
+  component.className = className
 
   // window.addEventListener('popstate', function () {})
 
