@@ -1,6 +1,6 @@
-import Router, { Link } from './lib/great-router.js'
-import { div, p } from './lib/great.js'
-import { Docs } from './pages/Docs.js'
+import { Router, Link, div } from '../greatjs/index.js'
+
+import { Docs } from './pages/Docs/Docs.js'
 import { Example } from './pages/Example/Example.js'
 import { Home } from './pages/Home/Home.js'
 
@@ -31,10 +31,11 @@ export const App = () =>
       Router({
         className: 'p-4',
         routes: {
-          home: p({ children: Home() }),
-          docs: p({ children: Docs() }),
-          example: p({ children: Example() }),
+          home: Home(),
+          docs: Docs(),
+          example: Example(),
         },
+        defaultRoute: 'docs',
       }),
     ],
   })

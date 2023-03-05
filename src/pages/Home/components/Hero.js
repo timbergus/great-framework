@@ -1,5 +1,4 @@
-import { Link } from '../../../lib/great-router.js'
-import { div, h1, p } from '../../../lib/great.js'
+import { Link, div, h1, p } from '../../../../greatjs/index.js'
 
 export const Hero = () => {
   return div({
@@ -13,11 +12,12 @@ export const Hero = () => {
             className: 'text-5xl font-bold',
             children: 'GreatJS',
           }),
-          p({
-            className: 'py-6',
-            children:
-              'This is a new React like framework but for vanilla JavaScript. No transpiling, no extra development tools. It is not PerformanceEntry, but it is a work in progress, and the best way of learning a lot about the browser.',
-          }),
+          p(
+            'This is a new React like framework but for vanilla JavaScript. No transpiling, no extra development tools. It is not PerformanceEntry, but it is a work in progress, and the best way of learning a lot about the browser.',
+            {
+              className: 'py-6',
+            }
+          ),
           Link({
             to: 'docs',
             className: 'btn btn-primary',

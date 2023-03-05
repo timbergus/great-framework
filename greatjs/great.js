@@ -1,6 +1,10 @@
-import { createSignal, appendElement, isEvent, setProperty } from './utils.js'
+import { appendElement, isEvent, setProperty } from './utils.js'
 
-function createComponent(name, props = {}, children = undefined || null) {
+export function createComponent(
+  name,
+  props = {},
+  children = undefined || null
+) {
   const component = document.createElement(name)
 
   Object.entries(props).forEach(([key, value]) => {
@@ -22,37 +26,38 @@ function createComponent(name, props = {}, children = undefined || null) {
   return component
 }
 
-function h1({ children, ...props } = {}) {
+export function h1({ children, ...props } = {}) {
   return createComponent('h1', props, children)
 }
 
-function p({ children, ...props } = {}) {
+export function h2({ children, ...props } = {}) {
+  return createComponent('h1', props, children)
+}
+
+export function p(children, props = {}) {
   return createComponent('p', props, children)
 }
 
-function span({ children, ...props } = {}) {
+export function span({ children, ...props } = {}) {
   return createComponent('span', props, children)
 }
 
-function a({ children, ...props } = {}) {
+export function a({ children, ...props } = {}) {
   return createComponent('a', props, children)
 }
 
-function input({ children, ...props } = {}) {
+export function input({ children, ...props } = {}) {
   return createComponent('input', props, children)
 }
 
-function button({ children, ...props } = {}) {
+export function button({ children, ...props } = {}) {
   return createComponent('button', props, children)
 }
 
-function div({ children, ...props } = {}) {
+export function div({ children, ...props } = {}) {
   return createComponent('div', props, children)
 }
 
-function img(props = {}) {
+export function img(props = {}) {
   return createComponent('img', props)
 }
-
-export default createComponent
-export { createSignal, h1, p, div, span, a, input, button, img }

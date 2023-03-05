@@ -20,7 +20,7 @@ export function Link({ to, className, children }) {
   return component
 }
 
-export default function Router({ className, routes }) {
+export function Router({ className, routes, defaultRoute }) {
   const component = document.createElement('div')
   component.className = className
 
@@ -38,7 +38,7 @@ export default function Router({ className, routes }) {
   // Init
   window.dispatchEvent(
     new CustomEvent('navigate', {
-      detail: { route: Object.keys(routes)[0] },
+      detail: { route: defaultRoute ?? Object.keys(routes)[0] },
     })
   )
 

@@ -1,11 +1,13 @@
-import { p, span } from '../../../lib/great.js'
+import { p, span } from '../../../../greatjs/index.js'
 
 export const InfoLine = ({ name, value, color }) => {
-  return p({
-    className: 'text-zinc-700 dark:text-zinc-200',
-    children: [
+  return p(
+    [
       span({ className: 'font-bold', children: `${name}: ` }),
       span({ className: color, children: value }),
     ],
-  })
+    {
+      className: 'text-zinc-700 dark:text-zinc-200',
+    }
+  )
 }

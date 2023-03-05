@@ -1,4 +1,4 @@
-import { div } from '../../../lib/great.js'
+import { div } from '../../../../greatjs/index.js'
 
 export const Layout = ({ children }) =>
   div({

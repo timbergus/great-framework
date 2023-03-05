@@ -48,6 +48,7 @@ export function createSignal() {
 }
 
 export function appendElement(parent, element) {
+  console.log(element)
   if (Array.isArray(element)) {
     if (element) {
       for (let el of element) {

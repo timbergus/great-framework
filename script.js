@@ -1,7 +1,5 @@
-import { render } from './src/lib/great-dom.js'
+import { render } from './greatjs/index.js'
 
 import { App } from './src/App.js'
 
-const root = document.getElementById('root')
-
-render(root, App())
+render(App())

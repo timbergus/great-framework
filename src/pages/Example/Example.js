@@ -1,6 +1,14 @@
-import Router, { Link } from '../../lib/great-router.js'
-import { div, h1, input, p, span } from '../../lib/great.js'
-import { createSignal } from '../../lib/utils.js'
+import {
+  createSignal,
+  div,
+  h1,
+  input,
+  Link,
+  p,
+  Router,
+  span,
+} from '../../../greatjs/index.js'
+
 import { Button } from './components/Button.js'
 import { Jedi } from './components/Jedi.js'
 import { Layout } from './components/Layout.js'
@@ -57,17 +65,17 @@ export const Example = () => {
             children: [
               Router({
                 routes: {
-                  first: p({ children: 'This is the FIRST route' }),
-                  second: p({ children: 'This is the SECOND route' }),
-                  third: p({ children: 'This is the THIRD route' }),
+                  first: p('This is the FIRST route'),
+                  second: p('This is the SECOND route'),
+                  third: p('This is the THIRD route'),
                 },
               }),
               Router({
                 className: ' justify-self-end',
                 routes: {
-                  forth: p({ children: 'This is the FORTH route' }),
-                  fifth: p({ children: 'This is the FIFTH route' }),
-                  sixth: p({ children: 'This is the SIXTH route' }),
+                  forth: p('This is the FORTH route'),
+                  fifth: p('This is the FIFTH route'),
+                  sixth: p('This is the SIXTH route'),
                 },
               }),
             ],
@@ -83,10 +91,7 @@ export const Example = () => {
       }),
       div({
         className: 'h-10 flex items-center pl-2',
-        children: p({
-          className: color(),
-          children: text(),
-        }),
+        children: p(text(), { className: color() }),
       }),
       Layout({
         children: ['red', 'green', 'blue'].map((name) =>
