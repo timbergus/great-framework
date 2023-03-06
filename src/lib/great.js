@@ -31,7 +31,7 @@ export function h1({ children, ...props } = {}) {
 }
 
 export function h2({ children, ...props } = {}) {
-  return createComponent('h1', props, children)
+  return createComponent('h2', props, children)
 }
 
 export function p(children, props = {}) {
@@ -60,4 +60,12 @@ export function div({ children, ...props } = {}) {
 
 export function img(props = {}) {
   return createComponent('img', props)
+}
+
+export function ul(children, props = {}) {
+  return createComponent('ul', props, children)
+}
+
+export function li(children, props = {}) {
+  return createComponent('li', props, children)
 }
