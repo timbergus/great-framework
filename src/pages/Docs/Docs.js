@@ -1,4 +1,4 @@
-import { div, li, p, ul } from '../../lib/great.js'
+import { div, p } from '../../lib/great.js'
 import { DocImage } from './components/DocImage.js'
 import { H1 } from './components/H1.js'
 import { H2 } from './components/H2.js'
