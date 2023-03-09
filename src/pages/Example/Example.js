@@ -18,44 +18,37 @@ export const Example = () => {
     setColor(`text-${this.name}-500`)
   }
 
-  return div({
-    className: 'flex flex-col gap-2 p-4',
-    children: [
-      h1({
-        className: 'text-3xl font-semibold text-zinc-700 dark:text-zinc-200',
-        children: [
-          'We',
-          span({ children: 'lc', className: 'text-red-500 font-normal' }),
-          'ome 👋',
-        ],
-      }),
-      div({
-        className: 'grid gap-8 justify-center p-4',
-        children: [
-          div({
-            className: 'grid grid-cols-2 gap-2',
-            children: [
-              div({
-                className: 'btn-group',
-                children: [
-                  Link({ to: 'first', className: 'btn', children: 'First' }),
-                  Link({ to: 'second', className: 'btn', children: 'Second' }),
-                  Link({ to: 'third', className: 'btn', children: 'Third' }),
+  return div(
+    [
+      h1(
+        ['We', span('lc', { className: 'text-red-500 font-normal' }), 'ome 👋'],
+        { className: 'text-3xl font-semibold text-zinc-700 dark:text-zinc-200' }
+      ),
+      div(
+        [
+          div(
+            [
+              div(
+                [
+                  Link('First', { to: 'first', className: 'btn' }),
+                  Link('Second', { to: 'second', className: 'btn' }),
+                  Link('Third', { to: 'third', className: 'btn' }),
                 ],
-              }),
-              div({
-                className: 'btn-group justify-self-end',
-                children: [
-                  Link({ to: 'forth', className: 'btn', children: 'Forth' }),
-                  Link({ to: 'fifth', className: 'btn', children: 'Fifth' }),
-                  Link({ to: 'sixth', className: 'btn', children: 'Sixth' }),
+                { className: 'btn-group' }
+              ),
+              div(
+                [
+                  Link('Forth', { to: 'forth', className: 'btn' }),
+                  Link('Fifth', { to: 'fifth', className: 'btn' }),
+                  Link('Sixth', { to: 'sixth', className: 'btn' }),
                 ],
-              }),
+                { className: 'btn-group justify-self-end' }
+              ),
             ],
-          }),
-          div({
-            className: 'grid grid-cols-2 gap-2',
-            children: [
+            { className: 'grid grid-cols-2 gap-2' }
+          ),
+          div(
+            [
               Router({
                 routes: {
                   first: p('This is the FIRST route'),
@@ -72,9 +65,11 @@ export const Example = () => {
                 },
               }),
             ],
-          }),
+            { className: 'grid grid-cols-2 gap-2' }
+          ),
         ],
-      }),
+        { className: 'grid gap-8 justify-center p-4' }
+      ),
       input({
         type: 'text',
         className: 'input w-full max-w-xs',
@@ -82,20 +77,19 @@ export const Example = () => {
         onInput: handleSetOutput,
         autofocus: true,
       }),
-      div({
+      div(p(text(), { className: color() }), {
         className: 'h-10 flex items-center pl-2',
-        children: p(text(), { className: color() }),
       }),
-      Layout({
-        children: ['red', 'green', 'blue'].map((name) =>
-          Button({
+      Layout(
+        ['red', 'green', 'blue'].map((name) =>
+          Button(name, {
             name: name,
             onClick: handleChangeColor,
           })
-        ),
-      }),
-
+        )
+      ),
       Jedi({ color }),
     ],
-  })
+    { className: 'flex flex-col gap-2 p-4' }
+  )
 }

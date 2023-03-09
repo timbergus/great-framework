@@ -26,11 +26,11 @@ export function createComponent(
   return component
 }
 
-export function h1({ children, ...props } = {}) {
+export function h1(children, props = {}) {
   return createComponent('h1', props, children)
 }
 
-export function h2({ children, ...props } = {}) {
+export function h2(children, props = {}) {
   return createComponent('h2', props, children)
 }
 
@@ -38,23 +38,23 @@ export function p(children, props = {}) {
   return createComponent('p', props, children)
 }
 
-export function span({ children, ...props } = {}) {
+export function span(children, props = {}) {
   return createComponent('span', props, children)
 }
 
-export function a({ children, ...props } = {}) {
+export function a(children, props = {}) {
   return createComponent('a', props, children)
 }
 
-export function input({ children, ...props } = {}) {
-  return createComponent('input', props, children)
+export function input(props = {}) {
+  return createComponent('input', props)
 }
 
-export function button({ children, ...props } = {}) {
+export function button(children, props = {}) {
   return createComponent('button', props, children)
 }
 
-export function div({ children, ...props } = {}) {
+export function div(children, props = {}) {
   return createComponent('div', props, children)
 }
 

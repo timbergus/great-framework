@@ -5,17 +5,15 @@ import { H2 } from './components/H2.js'
 import { Highlight } from './components/Highlight.js'
 
 export const Docs = () =>
-  div({
-    className: 'grid gap-y-6 pb-[calc(1/2*100vh)]',
-    children: [
+  div(
+    [
       H1('GreatJS'),
       p(
         'This new framework is a personal development because I want to remember how things were done before React. I have been working in Web development for almost twelve years, and I wanted to have my own framework. We never have enough JavaScript frameworks.'
       ),
       H2('Render'),
-      div({
-        className: 'grid gap-y-4',
-        children: [
+      div(
+        [
           p([
             'The minimum app contains an',
             Highlight('index.html'),
@@ -36,11 +34,11 @@ export const Docs = () =>
             'method from the library. As you can see, all the library is based on functions. Everything is a function. All the components are functions.',
           ]),
         ],
-      }),
+        { className: 'grid gap-y-4' }
+      ),
       H2('Components'),
-      div({
-        className: 'grid gap-y-4',
-        children: [
+      div(
+        [
           p([
             'All components receive an unnamed parameter that will be used as the',
             Highlight('children', { onlyLeft: true }),
@@ -66,14 +64,14 @@ export const Docs = () =>
           ]),
           DocImage('button', { className: 'md:w-2/3' }),
         ],
-      }),
+        { className: 'grid gap-y-4' }
+      ),
       H2('Signals'),
       p(
         'And here starts the juicy things of the framework. Signal! Or how we communicate events to different parts of the application.'
       ),
-      div({
-        className: 'grid gap-y-4',
-        children: [
+      div(
+        [
           p(
             'If you have worked with React or SolidJS you probably know that we have some hooks to assign events to variables. So if we click on a button and set the value of a hook variable using a hook method, all the properties related to that variable are immediately updated to the new value.'
           ),
@@ -99,7 +97,8 @@ export const Docs = () =>
             'This updates the component creating the same behavior that we have in React but in vanilla JavaScript.'
           ),
         ],
-      }),
+        { className: 'grid gap-y-4' }
+      ),
       H2('Routing'),
       p([
         'Routing is another interesting piece of work. Each',
@@ -115,4 +114,5 @@ export const Docs = () =>
         '.',
       ]),
     ],
-  })
+    { className: 'grid gap-y-6 pb-[calc(1/2*100vh)]' }
+  )

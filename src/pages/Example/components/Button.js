@@ -1,12 +1,12 @@
 import { button, p, span } from '../../../lib/great.js'
 
-export const Button = ({ name, children, onClick }) => {
-  return button({
-    name,
-    className: `btn bg-${name}-600 hover:bg-${name}-700`,
-    children: p(
-      children ? children : span({ className: 'capitalize', children: name })
-    ),
-    onClick,
-  })
+export const Button = (children, { name, onClick }) => {
+  return button(
+    p(children ? children : span(name, { className: 'capitalize' })),
+    {
+      name,
+      className: `btn bg-${name}-600 hover:bg-${name}-700`,
+      onClick,
+    }
+  )
 }

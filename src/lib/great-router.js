@@ -25,10 +25,9 @@ export function Router({ className, routes, defaultRoute }) {
   return component
 }
 
-export function Link({ to, className, children }) {
-  const component = button({
+export function Link(children, { to, className }) {
+  const component = button(children, {
     className,
-    children,
     onClick: function () {
       window.dispatchEvent(
         new CustomEvent('navigate', { detail: { route: to } })

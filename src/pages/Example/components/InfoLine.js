@@ -3,11 +3,9 @@ import { p, span } from '../../../lib/great.js'
 export const InfoLine = ({ name, value, color }) => {
   return p(
     [
-      span({ className: 'font-bold', children: `${name}: ` }),
-      span({ className: color, children: value }),
+      span(`${name}: `, { className: 'font-bold' }),
+      span(value, { className: color }),
     ],
-    {
-      className: 'text-zinc-700 dark:text-zinc-200',
-    }
+    { className: 'text-zinc-700 dark:text-zinc-200' }
   )
 }

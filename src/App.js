@@ -6,29 +6,25 @@ import { Example } from './pages/Example/Example.js'
 import { Home } from './pages/Home/Home.js'
 
 export const App = () =>
-  div({
-    className: 'max-w-[768px] mx-auto',
-    children: [
-      div({
-        className: 'navbar bg-base-100 gap-1',
-        children: [
-          Link({
+  div(
+    [
+      div(
+        [
+          Link('Home', {
             to: 'home',
             className: 'btn btn-ghost normal-case text-xl',
-            children: 'Home',
           }),
-          Link({
+          Link('Docs', {
             to: 'docs',
             className: 'btn btn-ghost normal-case text-xl',
-            children: 'Docs',
           }),
-          Link({
+          Link('Example', {
             to: 'example',
             className: 'btn btn-ghost normal-case text-xl',
-            children: 'Example',
           }),
         ],
-      }),
+        { className: 'navbar bg-base-100 gap-1' }
+      ),
       Router({
         className: 'p-4',
         routes: {
@@ -39,4 +35,5 @@ export const App = () =>
         defaultRoute: 'docs',
       }),
     ],
-  })
+    { className: 'max-w-[768px] mx-auto' }
+  )

@@ -16,24 +16,21 @@ export const Jedi = ({ color }) => {
       })
   }
 
-  return div({
-    className: 'flex flex-col gap-2',
-    children: Layout({
-      children: div({
-        className: 'col-span-3 flex flex-col gap-y-2',
-        children: [
-          Button({
+  return div(
+    Layout(
+      div(
+        [
+          Button('Who is the Jedi?', {
             name: 'fuchsia',
             onClick: handleFetchJedi,
-            children: 'Who is the Jedi?',
           }),
-          div({
-            className: 'border-4 border-amber-800',
-            children: img({
+          div(
+            img({
               src: 'https://static.standard.co.uk/s3fs-public/thumbnails/image/2016/06/27/14/markhamill.jpg',
               alt: 'Luke Skywalker',
             }),
-          }),
+            { className: 'border-4 border-amber-800' }
+          ),
           Object.entries({
             name: 'Name',
             birth_year: 'Birth year',
@@ -50,7 +47,9 @@ export const Jedi = ({ color }) => {
             })
           ),
         ],
-      }),
-    }),
-  })
+        { className: 'col-span-3 flex flex-col gap-y-2' }
+      )
+    ),
+    { className: 'flex flex-col gap-2' }
+  )
 }
